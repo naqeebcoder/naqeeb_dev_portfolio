@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naqeeb: Software Developer Portfolio - AI & Laravel Expert</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-cyan: #00d9ff;
+            --dark-bg: #0a0e27;
+            --darker-bg: #050816;
+            --card-bg: #0f1729;
+            --text-primary: #ffffff;
+            --text-secondary: #b4b4b4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--darker-bg);
+            color: var(--text-primary);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 0;
+            box-shadow: 0 2px 20px rgba(0, 217, 255, 0.1);
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-cyan) !important;
+        }
+
+        .nav-link {
+            color: var(--text-primary) !important;
+            margin: 0 1rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-cyan) !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-cyan);
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content h1 .highlight {
+            color: var(--primary-cyan);
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin: 2rem 0;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .stat-item i {
+            color: var(--primary-cyan);
+        }
+
+        .btn-primary-custom {
+            background: var(--primary-cyan);
+            color: var(--dark-bg);
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(0, 217, 255, 0.3);
+        }
+
+        .btn-primary-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 217, 255, 0.5);
+            background: #00f0ff;
+        }
+
+        .profile-image {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 50px rgba(0, 217, 255, 0.2);
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+        }
+
+        .section-title span {
+            color: var(--primary-cyan);
+        }
+
+        /* About Section */
+        .about-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 217, 255, 0.1);
+        }
+
+        .about-card h3 {
+            color: var(--primary-cyan);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Experience & Education */
+        .timeline-item {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--primary-cyan);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.2);
+        }
+
+        .timeline-item h4 {
+            color: var(--primary-cyan);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item .company {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-item .duration {
+            color: var(--primary-cyan);
+            font-size: 0.85rem;
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            background: rgba(0, 217, 255, 0.1);
+            border-radius: 20px;
+            margin-bottom: 1rem;
+        }
+
+        /* Skills */
+        .skill-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(0, 217, 255, 0.1);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 217, 255, 0.3);
+            border-color: var(--primary-cyan);
+        }
+
+        .skill-card i {
+            font-size: 3rem;
+            color: var(--primary-cyan);
+            margin-bottom: 1rem;
+        }
+
+        .skill-progress {
+            margin-top: 1rem;
+        }
+
+        .progress {
+            height: 8px;
+            background: rgba(0, 217, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .progress-bar {
+            background: linear-gradient(90deg, var(--primary-cyan), #00f0ff);
+            border-radius: 10px;
+        }
+
+        /* Projects */
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(0, 217, 255, 0.1);
+            /* height: 100%; */
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 50px rgba(0, 217, 255, 0.3);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--dark-bg), var(--card-bg));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary-cyan);
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-title {
+            color: var(--primary-cyan);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background: rgba(0, 217, 255, 0.1);
+            color: var(--primary-cyan);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .project-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Services */
+        .service-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(0, 217, 255, 0.1);
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 50px rgba(0, 217, 255, 0.3);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(0, 217, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .service-icon i {
+            font-size: 2.5rem;
+            color: var(--primary-cyan);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, var(--dark-bg), var(--darker-bg));
+        }
+
+        .contact-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 3rem;
+            border: 1px solid rgba(0, 217, 255, 0.1);
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info-item i {
+            color: var(--primary-cyan);
+            font-size: 1.5rem;
+        }
+
+        .form-control {
+            background: white;
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            color: var(--text-primary);
+            border-radius: 10px;
+            padding: 1rem;
+        }
+
+        .form-control:focus {
+            background: rgba(0, 217, 255, 0.08);
+            border-color: var(--primary-cyan);
+            color: var(--text-primary);
+            box-shadow: 0 0 20px rgba(0, 217, 255, 0.2);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--darker-bg);
+            padding: 3rem 0 1rem;
+            border-top: 1px solid rgba(0, 217, 255, 0.1);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 217, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-cyan);
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: var(--primary-cyan);
+            color: var(--dark-bg);
+            transform: translateY(-5px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content .subtitle {
+                font-size: 1.3rem;
+            }
+
+            .profile-image {
+                width: 300px;
+                height: 300px;
+                margin-top: 2rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Naqeeb.dev</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <div class="hero-content fade-in-up">
+                        <h1>Software Developer<br><span class="highlight">Expert in AI & Laravel Development</span></h1>
+                        <p class="subtitle">Building innovative solutions with cutting-edge technology</p>
+
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <i class="fas fa-code"></i>
+                                <span>6+ Years Experience</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-project-diagram"></i>
+                                <span>30+ Projects Completed</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-users"></i>
+                                <span>15+ Happy Clients</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <button class="btn btn-primary-custom me-3"
+                                onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
+                                Let's Work Together
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 text-center">
+                    <div class="profile-image mx-auto">
+                        <img src="profile.png" alt="Profile">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">Passionate Software Developer with a <span>Business Mindset</span></h2>
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="about-card">
+                        <h3>Full-Stack Developer | AI Enthusiast | Laravel Expert</h3>
+                        <p class="lead">With over 6+ years of experience in software development, I specialize in
+                            creating robust, scalable applications using Laravel, AI technologies, and modern web
+                            frameworks. My passion lies in solving complex problems and delivering high-quality
+                            solutions that drive business growth.</p>
+                        <p>I combine technical expertise with a strong understanding of business needs to create
+                            applications that not only work flawlessly but also contribute to the bottom line. Whether
+                            it's developing AI-powered features, building RESTful APIs, or creating intuitive user
+                            interfaces, I bring dedication and innovation to every project.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 class="section-title">Experience & <span>Education</span></h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <h3 class="mb-4"><i class="fas fa-briefcase text-cyan me-2"
+                            style="color: var(--primary-cyan)"></i>Work Experience</h3>
+
+                    <div class="timeline-item">
+                        <span class="duration">07/2025 - Present</span>
+                        <h4>AI/Laravel Developer</h4>
+                        <div class="company">Softech Business Services (Pvt) Ltd</div>
+
+                        <div class="company">LSUK (UK-Based Language Translation Product)</div>
+                        <p>I am working on an advanced AI-powered Document Translation Tool designed to accurately
+                            translate PDF, Word, and Excel
+                            files while preserving the original formatting, layout, tables, and data structure. This
+                            solution leverages cutting-edge
+                            artificial intelligence and language models to deliver high-accuracy translations across
+                            multiple languages.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <span class="duration">12/2024 — May/2025</span>
+                        <h4>Senior Laravel Developer</h4>
+                        <div class="company">Digilynx</div>
+
+                        <div class="company">Trucking Management System (Project)</div>
+                        <p>Web-based logistics and trucking management platform to manage freight job requests, track
+                            shipments, manage carriers
+                            and truckers, handle payments, and facilitate stakeholder communication.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <span class="duration">01/2023 — 12/2024</span>
+                        <h4>Laravel Developer</h4>
+                        <div class="company">Smart Destination</div>
+                        <div class="company">Toureast</div>
+                        <p>Tourism website for Singapore offering hotel bookings, tickets, visas, and shuttle services
+                            with categorized listings.</p>
+
+                        <div class="company">GEMT</div>
+                        <p>Global tourism platform for Tour Operators and Travel Agents to enhance business with digital
+                            tools and inquiry
+                            management.</p>
+                        <div class="company">Operator Portal</div>
+                        <p>Platform for Tour Operators and Travel Agents to streamline business operations using digital
+                            tools.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <span class="duration">06/2023 — 08/2024</span>
+                        <h4>Laravel Developer</h4>
+                        <div class="company">Start Automation</div>
+
+                        <div class="company">Education Management System</div>
+                        <p>The EMS offers powerful management tools that allow institutions to control academic
+                            operations, user roles, and system
+                            settings from a single dashboard. Administrators can configure courses, academic years,
+                            class schedules, grading
+                            systems, and permissions.</p>
+
+                        <div class="company">Account Management System</div>
+                        <p>I have worked on accounting features including ledger management, where financial
+                            transactions are accurately recorded
+                            and maintained for clear tracking of debits and credits. I contributed to implementing core
+                            accounting functionalities.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <h3 class="mb-4"><i class="fas fa-graduation-cap text-cyan me-2"
+                            style="color: var(--primary-cyan)"></i>Education</h3>
+
+                    <div class="timeline-item">
+                        <h4>BS Computer Science</h4>
+                        <div class="company">University Of South Asia, Lahore</div>
+                        <span class="duration">08/2015 — 12/2019</span>
+                        <p>Specialized in software architecture, backend development, and databases.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h4>ICS (Intermediate in Computer Science)</h4>
+                        <div class="company">Noble Groups of Colleges, Lahore</div>
+                        <span class="duration">2013 — 2015</span>
+                        <p>Focused on Computer, Mathematics.</p>
+                    </div>
+
+                    <h3 class="mb-4 mt-5"><i class="fa-solid fa-award" style="color: var(--primary-cyan)"></i>&nbsp;
+                        Achievement
+                    </h3>
+                    <div class="timeline-item">
+                        <h4>IEEE Member</h4>
+                        <!-- <div class="company">IEEE Member</div> -->
+                        <span class="duration">12/2017 — 12/2018</span>
+                        <p>Actively participated as an IEEE member by engaging in technical workshops, seminars, and
+                            professional development
+                            events. Contributed to IEEE-organized sessions focused on emerging technologies, software
+                            engineering best practices,
+                            and innovation trends. Collaborated with fellow members in knowledge-sharing activities,
+                            technical discussions.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Developer Circles from Facebook</h4>
+                        <!-- <div class="company">IEEE Member</div> -->
+                        <span class="duration">Jun/2018 — Aug/2019</span>
+                        <p>I was a member of the Facebook Developer Circle, actively participating in various activities
+                            related to development and
+                            technology.</p>
+                    </div>
+
+
+                    <h3 class="mb-4 mt-5"><i class="fas fa-certificate text-cyan me-2"
+                            style="color: var(--primary-cyan)"></i>Certifications
+                    </h3>
+
+                    <div class="timeline-item">
+                        <h4>Introduction to Generative AI</h4>
+                        <!-- <div class="company">Amazon Web Services</div> -->
+                        <span class="duration">April - 2025</span>
+                        <p>Successfully completed the Introduction to Generative AI course, gaining a solid
+                            understanding of generative models and
+                            their real-world applications. Learned core concepts such as large language models (LLMs),
+                            prompt engineering, and the
+                            fundamentals of text, image, and data generation. Explored ethical considerations,
+                            limitations, and best practices for
+                            using generative AI in modern software development and business solutions.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h4>Introduction to Large Language Models</h4>
+                        <span class="duration">May - 2025</span>
+                        <p>Successfully completed the Introduction to Large Language Models course, developing a strong
+                            foundation in how LLMs are
+                            designed, trained, and deployed. Gained practical knowledge of transformer architectures,
+                            tokenization, embeddings, and
+                            fine-tuning concepts. Explored real-world use cases of LLMs in natural language processing
+                            tasks such as text
+                            generation, summarization, translation, and conversational AI, along with an understanding
+                            of model limitations, bias,
+                            and responsible AI practices.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">Technical <span>Skills</span></h2>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="skill-card">
+                        <i class="fab fa-laravel"></i>
+                        <h5>Laravel</h5>
+                        <div class="skill-progress">
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 95%"></div>
+                            </div>
+                            <small class="text mt-1 d-block">85%</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="skill-card">
+                        <i class="fa-brands fa-python"></i>
+                        <h5>Python</h5>
+                        <div class="skill-progress">
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 95%"></div>
+                            </div>
+                            <small class="text mt-1 d-block">55%</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="skill-card">
+                        <i class="fa-solid fa-flask"></i>
+                        <h5>Flask</h5>
+                        <div class="skill-progress">
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 95%"></div>
+                            </div>
+                            <small class="text mt-1 d-block">60%</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="skill-card">
+                        <i class="fas fa-brain"></i>
+                        <h5>AI/ML</h5>
+                        <div class="skill-progress">
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 85%"></div>
+                            </div>
+                            <small class="text mt-1 d-block">50%</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="skill-card">
+                        <i class="fab fa-php"></i>
+                        <h5>PHP</h5>
+                        <div class="skill-progress">
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 90%"></div>
+                            </div>
+                            <small class="text mt-1 d-block">80%</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="skill-card">
+                        <i class="fab fa-js"></i>
+                        <h5>JavaScript</h5>
+                        <div class="skill-progress">
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 88%"></div>
+                            </div>
+                            <small class="text mt-1 d-block">80%</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="skill-card">
+                        <i class="fab fa-vuejs"></i>
+                        <h5>Vue.js</h5>
+                        <div class="skill-progress">
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 85%"></div>
+                            </div>
+                            <small class="text mt-1 d-block">60%</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="skill-card">
+                        <i class="fab fa-react"></i>
+                        <h5>React</h5>
+                        <div class="skill-progress">
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 82%"></div>
+                            </div>
+                            <small class="text mt-1 d-block">65%</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="skill-card">
+                        <i class="fas fa-database"></i>
+                        <h5>MySQL</h5>
+                        <div class="skill-progress">
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 90%"></div>
+                            </div>
+                            <small class="text mt-1 d-block">85%</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="skill-card">
+                        <i class="fa-brands fa-wordpress"></i>
+                        <h5>Wordpress</h5>
+                        <div class="skill-progress">
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 90%"></div>
+                            </div>
+                            <small class="text mt-1 d-block">85%</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="skill-card">
+                        <i class="fa-brands fa-github"></i>
+                        <h5>Git & Github</h5>
+                        <div class="skill-progress">
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 78%"></div>
+                            </div>
+                            <small class="text mt-1 d-block"> 88%</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Featured <span>Projects</span></h2>
+            <p class="text-center text mb-5">A selection of my best work showcasing AI integration, Laravel
+                expertise, and innovative solutions.</p>
+
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h4 class="project-title">Trucking Management System</h4>
+                            <p>Web-based logistics platform for freight management, shipment tracking, carrier
+                                management, and payment handling.</p>
+                            <div class="project-tags">
+                                <span class="tag">Laravel</span>
+                                <span class="tag">PHP</span>
+                                <span class="tag">j/Query</span>
+                                <span class="tag">JavaScript</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+
+                        <div class="project-content">
+                            <h4 class="project-title">Toureast Singapore</h4>
+                            <p>Tourism booking platform for hotels, tickets, visas, and shuttle services with
+                                categorized listings.</p>
+                            <div class="project-tags">
+                                <span class="tag">Laravel</span>
+                                <span class="tag">PHP</span>
+                                <span class="tag">Vue.js</span>
+                                <span class="tag">API</span>
+                                <span class="tag">Nuxt.js</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+
+                        <div class="project-content">
+                            <h4 class="project-title">GEMT Tour Platform</h4>
+                            <p>Global tourism platform for Tour Operators and Travel Agents with digital tools and
+                                inquiry management.</p>
+                            <div class="project-tags">
+                                <span class="tag">Laravel</span>
+                                <span class="tag">Vue.js</span>
+                                <span class="tag">MySql</span>
+                                <span class="tag">PHP</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+
+                        <div class="project-content">
+                            <h4 class="project-title">Operator Portal</h4>
+                            <p>Streamlined business operations platform for Tour Operators and Travel Agents using
+                                digital tools.</p>
+                            <div class="project-tags">
+                                <span class="tag">Laravel</span>
+                                <span class="tag">PHP</span>
+                                <span class="tag">API</span>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+
+                        <div class="project-content">
+                            <h4 class="project-title">Multi-Vendor Marketplace</h4>
+                            <p>Full-featured multi-vendor eCommerce platform with product management and secure
+                                checkout.</p>
+                            <div class="project-tags">
+                                <span class="tag">Laravel</span>
+                                <span class="tag">PHP</span>
+                                <span class="tag">MYSQL</span>
+                                <span class="tag">API</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <h2 class="section-title">Services I <span>Provide</span></h2>
+            <p class="text-center text mb-5">Comprehensive development solutions tailored to your business needs
+            </p>
+
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h4>Custom Web Development</h4>
+                        <p>Building high-performance web applications using Laravel, PHP, and modern JavaScript
+                            frameworks tailored to your specific requirements.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h4>AI/ML Integration</h4>
+                        <p>Implementing artificial intelligence and machine learning solutions to automate processes and
+                            provide intelligent insights.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <h4>Custom Software Development</h4>
+                        <p>Building high-performance Software development using Laravel, PHP, and modern JavaScript
+                            frameworks tailored to your
+                            specific requirements.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h4>API Development</h4>
+                        <p>Creating robust RESTful APIs for mobile apps, third-party integrations, and microservices
+                            architecture.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h4>Database Design & Optimization</h4>
+                        <p>Designing efficient database schemas and optimizing queries for maximum performance and
+                            scalability.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Security & Testing</h4>
+                        <p>Implementing comprehensive security measures and automated testing to ensure your application
+                            is secure and reliable.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h4>Technical Consultation</h4>
+                        <p>Providing expert guidance on technology stack selection, architecture decisions, and best
+                            development practices.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <h2 class="section-title">Let's <span>Connect</span></h2>
+            <p class="text-center text mb-5">Have a project in mind? Let's discuss how I can help bring your ideas
+                to life.</p>
+
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="contact-card h-100">
+                        <h4 class="mb-4">Contact Information</h4>
+
+                        <div class="contact-info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h6>Email</h6>
+                                <p>devnaqeeb@gmail.com</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-info-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h6>Phone</h6>
+                                <p>+92 341 0480085</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h6>Location</h6>
+                                <p>Islamabad, Pakistan</p>
+                            </div>
+                        </div>
+
+                        <div class="social-links mt-4">
+                            <a href="https://www.linkedin.com/in/naqeeb-ullah-bb46a9150/" class="social-link"><i
+                                    class="fab fa-github"></i></a>
+                            <a href="https://github.com/naqeebcoder" class="social-link"><i
+                                    class="fab fa-linkedin"></i></a>
+                            <!-- <a href="#" class="social-link"><i class="fab fa-twitter"></i></a> -->
+                            <!-- <a href="#" class="social-link"><i class="fab fa-stackoverflow"></i></a> -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-8">
+                    <div class="contact-card">
+                        <h4 class="mb-4">Send Me a Message</h4>
+                        <form id="contactForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <input type="text" class="form-control" placeholder="Your Name" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <input type="email" class="form-control" placeholder="Your Email" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" placeholder="Subject" required>
+                            </div>
+                            <div class="mb-3">
+                                <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary-custom">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="text-center">
+                <p class="mb-2">&copy; 2025 Naqeeb.dev. All rights reserved.</p>
+                <!-- <p class="text-muted">Built with <i class="fas fa-heart" style="color: var(--primary-cyan)"></i> using
+                    Laravel, Bootstrap & Creativity</p> -->
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background change on scroll
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(10, 14, 39, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(10, 14, 39, 0.95)';
+            }
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+
+        // Scroll animation observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function (entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out';
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.timeline-item, .skill-card, .project-card, .service-card').forEach(el => {
+            el.style.opacity = '0';
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>
